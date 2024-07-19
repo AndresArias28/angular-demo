@@ -7,9 +7,18 @@ import { products } from '../products';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
-  products = [...products];
+  //crear una copia del array original
+  //los corchetes implican que se crea un nuevo array que contiene los elementos de porducts
+  products = [...products];//operador spread- Operador de  propagacion
 
-  share() {
+  compartir() {
     window.alert('The product has been shared!');
   }
+
+  onNotify() {
+    window.alert('You will be notified when the product goes on sale');
+  }
+
+
+
 }

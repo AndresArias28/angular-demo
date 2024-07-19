@@ -2,7 +2,9 @@
 
 <div *ngFor="let product of products">
     <h3>
-        <a [title]="product.name + ' details'">
+        <a 
+            [title]="product.name + ' details'"
+            [routerLink]="['/products', product.id]">
             {{ product.name }}
         </a>
     </h3>
@@ -11,11 +13,14 @@
         Description: {{ product.description }}
     </p>
 
-    <button type="button" (click)="share()">
-        Share
+    <button type="button" (click)="compartir()">
+        Compartir
     </button>
 
     <!-- pasar datos del componente padre al hijo -->
-    <app-product-alerts [producto]="product">
-    </app-product-alerts>
+    <app-product-alerts [producto]="product" (notify)="onNotify()"></app-product-alerts>
+    <!-- mediante notify se esta recibiendo datos de componente hijo -->
+   
+
 </div>
+
